@@ -1,0 +1,19 @@
+/* @keyframes slideInLeft {
+  from {
+    transform : translateX(100%);
+  }
+
+  to{
+    transform: translateX(45%);
+  }
+}
+
+.animation {
+  animation-name: slideInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+} */
