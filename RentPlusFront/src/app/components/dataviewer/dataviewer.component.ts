@@ -12,9 +12,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
   template: ''
 })
 export class DataviewerComponent {
-  httpClient = inject(HttpClient);
+  httpClient: any;
      data : any;
-  constructor(){}
+  constructor(){
+    this.httpClient = inject(HttpClient);
+  }
   
   getxRentMsn(text: string): Observable<string> {
     return this.httpClient.get(`https://localhost:44386/GetxRent?text=${text}`, { responseType: 'text' });

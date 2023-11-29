@@ -25,7 +25,7 @@ export class FormComponentComponent {
 
 
   constructor() {}
-  
+   
   onSubmit() {
     let value = "";
     value = this.profileForm.value.yourtext?.toString()!;
