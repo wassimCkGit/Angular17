@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {  FormGroup,  FormsModule, Validators ,FormControl, ReactiveFormsModule } from '@angular/forms';
 import { DataviewerComponent } from '../dataviewer/dataviewer.component';
+import { APIService } from '../../services/api.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { log } from 'console';
@@ -21,8 +22,9 @@ export class FormComponentComponent {
     yourtext: new FormControl('', [Validators.required, Validators.minLength(3)])
   });
   title = "";
-  data = new DataviewerComponent;
-
+  // data = new DataviewerComponent;
+  data = new APIService;
+  version: any;
 
   constructor() {}
    
@@ -36,7 +38,28 @@ export class FormComponentComponent {
     this.submitted = true;
     console.warn(this.profileForm.value);
   }
-
+  ngOnInit() {
+    // // @ts-ignore
+    // google.accounts.id.initialize({
+    //   client_id: "708132787941-7r9f69j5hp9a29q7g5288kq2uuhjsmgd.apps.googleusercontent.com",
+    //   callback: this.handleCredentialResponse.bind(this),
+    //   auto_select: false,
+    //   cancel_on_tap_outside: true,
+  
+    // });
+    // // @ts-ignore
+    // google.accounts.id.renderButton(
+    // // @ts-ignore
+    // document.getElementById("google-button"),
+    //   { theme: "outline", size: "large", width: "100%" }
+    // );
+    // // @ts-ignore
+    // google.accounts.id.prompt((notification: PromptMomentNotification) => {});
+  }  
+  async handleCredentialResponse(response: any) {
+    // Here will be your response from Google.
+    console.log(response);
+  }
   goBack(){
     this.submitted = false;
   }

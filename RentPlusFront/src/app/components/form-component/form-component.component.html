@@ -17,6 +17,24 @@
         </div>
 
         <button class="w-100 btn btn-lg" type="submit" (click)="onSubmit()" [disabled]="!profileForm.valid">Submit</button>
+        <div class="" id="google-button"></div>
+        <div id="g_id_onload"
+          data-client_id="708132787941-7r9f69j5hp9a29q7g5288kq2uuhjsmgd.apps.googleusercontent.com" 
+          data-context="signin"
+          data-ux_mode="popup"
+          data-itp_support="true"
+          data-callback="handleOauthResponse"
+          >
+      </div>
+
+      <div class="g_id_signin"
+          data-type="standard"
+          data-shape="rectangular"
+          data-theme="outline"
+          data-text="signin_with"
+          data-size="large"
+          data-logo_alignment="left">
+      </div>
         </form>
     </div>
     <div [hidden]="!submitted">
@@ -24,3 +42,15 @@
       <form action="">
       <button class="w-100 btn btn-lg" type="submit" (click)="goBack()">Back</button>
     </form>
+    <script>
+      function decodeJWTToken(token){
+        return JSON.parse(atob(token.split(".")[1]))
+      }
+      function handleOauthResponse(response){
+        const responsePayload = decodeJWTToken(response.credential)
+        console.log(responsePayload)
+        sessionStorage.setItem('loggedinUser',JSON.stringify(responsePayload))
+        window.location('/your-desired-place') 
+        //Changed the above URL where you want user to be redirected
+      }
+    </script>
