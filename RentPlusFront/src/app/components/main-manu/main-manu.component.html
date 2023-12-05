@@ -1,0 +1,25 @@
+<!-- <div class="container-fluid mt-3 mb-3">
+    <div class="fullscreen-menu">
+        <a *ngFor="let item of menuItems" href="#" class="menu-item  col-md-2 col-sm-4 col-6">
+          <div class="app-icon">
+            <img [src]="'../../../assets/' + item.image" alt="Descripción de la imagen" class="logo-img">
+          </div>
+          <div class="app-caption">{{ item.caption }}</div>
+        </a>
+      </div>
+</div> -->
+
+    <div class="container-fluid mt-3 mb-3">
+        <div class="fullscreen-menu">
+            <!-- Add your Angular ngFor loop here -->
+            <!-- Use the provided menuItems and bind them to your HTML structure -->
+            <a *ngFor="let item of menuItems" [href]="item.route" class="menu-item col-md-2 col-sm-4 col-6">
+                @defer{
+                <div class="app-icon">
+                    <img [src]="'../../../assets/' + item.image" alt="item.caption" class="logo-img">
+                </div>
+                <div class="app-caption">{{ item.caption }}</div>
+                }
+            </a>
+        </div>
+    </div>

@@ -39,6 +39,17 @@ export class FormComponentComponent {
     console.warn(this.profileForm.value);
   }
   ngOnInit() {
+    // Initialize Google Sign-In
+    // google.accounts.id.initialize({
+    //   client_id: 'YOUR_CLIENT_ID',
+    //   callback: this.handleGoogleSignIn.bind(this),
+    // });
+  }
+  
+  handleGoogleSignIn(response: any) {
+    // Handle the Google Sign-In response here
+    console.log(response);
+  }
     // // @ts-ignore
     // google.accounts.id.initialize({
     //   client_id: "708132787941-7r9f69j5hp9a29q7g5288kq2uuhjsmgd.apps.googleusercontent.com",
@@ -55,11 +66,11 @@ export class FormComponentComponent {
     // );
     // // @ts-ignore
     // google.accounts.id.prompt((notification: PromptMomentNotification) => {});
-  }  
-  async handleCredentialResponse(response: any) {
-    // Here will be your response from Google.
-    console.log(response);
-  }
+  
+  // async handleCredentialResponse(response: any) {
+  //   // Here will be your response from Google.
+  //   console.log(response);
+  // }
   goBack(){
     this.submitted = false;
   }
